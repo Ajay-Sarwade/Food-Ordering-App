@@ -1,0 +1,29 @@
+{
+  "name": "food-order-app",
+  "version": "1.0.0",
+  "description": "swiggy clone using react",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest",
+    "start":"parcel index.html",
+    "build":"parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ajay-Sarwade/Food-Ordering-App.git"
+  },
+  "author": "Ajay Sarwade",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ajay-Sarwade/Food-Ordering-App/issues"
+  },
+  "homepage": "https://github.com/Ajay-Sarwade/Food-Ordering-App#readme",
+  "devDependencies": {
+    "parcel": "^2.9.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
