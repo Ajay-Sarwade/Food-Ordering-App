@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
+import Shimmer from "./shimmer";
 
 const RestaurantList = () => {
   const [resList, setResList] = useState([]);
-
+  console.log(resList.length);
   useEffect(() => {
     fetchData();
   }, []);
@@ -14,19 +15,19 @@ const RestaurantList = () => {
     );
 
     const json = await data.json();
-    console.log(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
     setResList(
       json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
 
-  return (
+  return resList && resList?.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div className="res-list">
-      {resList.map((res) => {
-        return <RestaurantCard resData={res.info} />;
-      })}
+      {resList &&
+        resList.map((res) => {
+          return <RestaurantCard resData={res.info} />;
+        })}
     </div>
   );
 };

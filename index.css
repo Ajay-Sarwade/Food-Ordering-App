@@ -36,11 +36,12 @@
     background-color: #f0f0f0;
     width:200px;
     /* height:350px; */
-    margin: 5px;
+    margin: 30px;
+    padding: 5px;
 }
 
 .res-card:hover{
-    /* border: 1px solid black; */
+    /* border: 1px solid rgb(104, 102, 102); */
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
@@ -49,3 +50,9 @@
     height:150px;
 }
 
+.shimmer{
+    background-color: #f0f0f0;
+    width:200px;
+    height:350px;
+    margin: 30px;
+}
