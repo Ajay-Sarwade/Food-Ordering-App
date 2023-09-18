@@ -1,20 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import React from "react";
+import Header from "./src/components/Header";
+import Body from "./src/components/Body";
 
-const Title = () => <h1 id="title">Swiggy Clone App Title</h1>;
-
-
-
-const Heading1 = () => {
+const App = () => {
   return (
     <>
-      <Title />
-      <h1 id="heading">Swiggy Clone App</h1>
+      <Header />
+      <Body />
     </>
   );
 };
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(<Heading1 />);
+root.render(<App />);
