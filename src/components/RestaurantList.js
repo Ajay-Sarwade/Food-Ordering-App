@@ -4,7 +4,9 @@ import Shimmer from "./shimmer";
 
 const RestaurantList = () => {
   const [resList, setResList] = useState([]);
-  console.log(resList.length);
+  const [searchList, setSearchList] = useState([]);
+  const [search, setSearch] = useState("");
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -18,17 +20,41 @@ const RestaurantList = () => {
     setResList(
       json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
+    setSearchList(
+      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
   };
 
   return resList && resList?.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="res-list">
-      {resList &&
-        resList.map((res) => {
-          return <RestaurantCard resData={res.info} />;
-        })}
-    </div>
+    <>
+      <input
+        className="search-input"
+        type="search"
+        onChange={(e) => {
+          setSearch(e.target.value);
+        }}
+      />
+      <button
+        className="search-btn"
+        onClick={() => {
+          const list = resList.filter((res) => {
+            return res.info.name.toLowerCase().includes(search.toLowerCase());
+          });
+
+          list.length > 0 ? setSearchList(list) : "";
+        }}
+      >
+        Search
+      </button>
+      <div className="res-list">
+        {searchList &&
+          searchList.map((res) => {
+            return <RestaurantCard resData={res.info} />;
+          })}
+      </div>
+    </>
   );
 };
 
