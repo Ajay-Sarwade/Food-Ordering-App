@@ -14,17 +14,18 @@
     margin-top: 10px;
 }
 
-.HeaderContainer>ul{
+.HeaderContainer_ul{
     display: flex;
     cursor: pointer;
     list-style: none;
 }
 
-.HeaderContainer > ul >li{
+.HeaderContainer_li{
     justify-content:space-between;
     padding: 0px 20px;
     margin-top: 15px;
-
+    list-style: none;
+    text-decoration: none;
 }
 
 .res-list{
@@ -43,6 +44,7 @@
 .res-card:hover{
     /* border: 1px solid rgb(104, 102, 102); */
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    cursor: pointer;
 }
 
 .card-img{
