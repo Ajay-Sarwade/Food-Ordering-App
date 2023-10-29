@@ -1,4 +1,7 @@
-.HeaderContainer{
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* .HeaderContainer{
  display: flex;
   width:100%;
   height:100px;
@@ -36,13 +39,11 @@
 .res-card{
     background-color: #f0f0f0;
     width:200px;
-    /* height:350px; */
     margin: 30px;
     padding: 5px;
 }
 
 .res-card:hover{
-    /* border: 1px solid rgb(104, 102, 102); */
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     cursor: pointer;
 }
@@ -52,12 +53,7 @@
     height:150px;
 }
 
-.shimmer{
-    background-color: #f0f0f0;
-    width:200px;
-    height:350px;
-    margin: 30px;
-}
+
 
 .search-input{
   margin:5px;
@@ -65,4 +61,11 @@
 
 .search-btn{
     margin: 5px;
+} */
+
+.shimmer{
+    background-color: #f0f0f0;
+    width:200px;
+    height:350px;
+    margin: 30px;
 }

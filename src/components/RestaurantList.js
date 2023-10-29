@@ -30,26 +30,28 @@ const RestaurantList = () => {
     <Shimmer />
   ) : (
     <>
-      <input
-        className="search-input"
-        type="search"
-        onChange={(e) => {
-          setSearch(e.target.value);
-        }}
-      />
-      <button
-        className="search-btn"
-        onClick={() => {
-          const list = resList.filter((res) => {
-            return res.info.name.toLowerCase().includes(search.toLowerCase());
-          });
+      <div className="my-5">
+        <input
+          className="m-2 bg-slate-200 border-black "
+          type="search"
+          onChange={(e) => {
+            setSearch(e.target.value);
+          }}
+        />
+        <button
+          className="search-btn m-1 px-4 bg-blue-200 rounded-md hover:bg-blue-400"
+          onClick={() => {
+            const list = resList.filter((res) => {
+              return res.info.name.toLowerCase().includes(search.toLowerCase());
+            });
 
-          list.length > 0 ? setSearchList(list) : "";
-        }}
-      >
-        Search
-      </button>
-      <div className="res-list">
+            list.length > 0 ? setSearchList(list) : "";
+          }}
+        >
+          Search
+        </button>
+      </div>
+      <div className="res-list flex flex-wrap">
         {searchList &&
           searchList.map((res) => {
             return (
