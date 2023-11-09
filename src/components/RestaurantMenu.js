@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Restaurantcategory from "./Restaurantcategory";
 
 const RestaurantMenu = () => {
   const [resName, setResName] = useState([]);
@@ -20,27 +21,23 @@ const RestaurantMenu = () => {
     const json = await data.json();
     setResName(json?.data?.cards[0]?.card?.card?.info?.name);
     setMenuList(
-      json?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card
-        ?.card?.itemCards
+      json?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards
     );
   };
 
   return (
-    <div>
-      <h2>{resName}</h2>
-      <h3>Menu</h3>
-      {menuList.map(
-        (item) => (
-          <li key={item.card.info.id}>
-            {item?.card?.info?.name +
-              " - " +
-              (item?.card?.info?.price
-                ? item?.card?.info?.price / 100
-                : "250") +
-              " Rs"}
-          </li>
+    <div className="text-center">
+      <h2 className="font-bold my-6 text-2xl">{resName}</h2>
+      <h3 className="font-bold my-2 text-xl">Menu</h3>
+      {menuList.map((item) =>
+        item?.card?.card?.title ? (
+          <Restaurantcategory
+            title={item?.card?.card?.title}
+            menuItems={item?.card?.card?.itemCards}
+          />
+        ) : (
+          ""
         )
-        // console.log(item.card.info.price)
       )}
     </div>
   );
