@@ -32,6 +32,7 @@ const RestaurantMenu = () => {
       {menuList.map((item) =>
         item?.card?.card?.title ? (
           <Restaurantcategory
+            key={item.card.card.title}
             title={item?.card?.card?.title}
             menuItems={item?.card?.card?.itemCards}
           />

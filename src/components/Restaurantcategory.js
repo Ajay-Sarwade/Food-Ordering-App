@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 function Restaurantcategory({ title, menuItems }) {
-  console.log(menuItems);
   const [clicked, setClicked] = useState(false);
   return menuItems ? (
     <>
@@ -19,7 +18,7 @@ function Restaurantcategory({ title, menuItems }) {
         </div>
         {clicked &&
           menuItems.map((item) => (
-            <div className=" shadow-md rounded-sm">
+            <div className=" shadow-md rounded-sm" key={item.card.info.name}>
               <div className="font-semibold flex justify-between  m-2 p-2">
                 <div>{item.card.info.name}</div>
                 <span>
@@ -32,7 +31,7 @@ function Restaurantcategory({ title, menuItems }) {
                 <span className="text-xs text-left w-9/12">
                   {item?.card?.info?.description}
                 </span>
-                <button className=" text-white text-sm bg-slate-800 p-2 rounded-md hover:bg-slate-200 hover:text-black ">
+                <button className=" text-white text-sm bg-slate-800 p-2 rounded-md hover:bg-slate-200 hover:text-black h-10">
                   Add+
                 </button>
               </div>
