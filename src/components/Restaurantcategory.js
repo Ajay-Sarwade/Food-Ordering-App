@@ -1,7 +1,14 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cartSlice";
 
 function Restaurantcategory({ title, menuItems }) {
   const [clicked, setClicked] = useState(false);
+  const dispatch = useDispatch();
+
+  const handleClick = (item) => {
+    dispatch(addItem(item));
+  };
   return menuItems ? (
     <>
       <div className="w-6/12 mx-auto my-2 bg-gray-50 shadow-lg p-4">
@@ -31,7 +38,10 @@ function Restaurantcategory({ title, menuItems }) {
                 <span className="text-xs text-left w-9/12">
                   {item?.card?.info?.description}
                 </span>
-                <button className=" text-white text-sm bg-slate-800 p-2 rounded-md hover:bg-slate-200 hover:text-black h-10">
+                <button
+                  className=" text-white text-sm bg-slate-800 p-2 rounded-md hover:bg-slate-200 hover:text-black h-10"
+                  onClick={() => handleClick(item?.card)}
+                >
                   Add+
                 </button>
               </div>

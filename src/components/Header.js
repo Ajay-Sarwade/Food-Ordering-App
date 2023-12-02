@@ -1,6 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+
 const Header = () => {
+  const cart = useSelector((store) => store.cart);
+
   return (
     <div className="HeaderContainer flex justify-between bg-red-50 shadow-lg mb-2 h-20">
       <img
@@ -20,7 +24,12 @@ const Header = () => {
         <li className="HeaderContainer_li m-1 px-2 hover:bg-red-100">
           Contact us
         </li>
-        <li className="HeaderContainer_li m-1 px-2 hover:bg-red-100">Cart</li>
+        <Link
+          to="/cart"
+          className="HeaderContainer_li m-1 px-2 hover:bg-red-100"
+        >
+          Cart {cart?.item?.length > 0 ? `(${cart.item.length})` : ""}
+        </Link>
       </ul>
     </div>
   );
